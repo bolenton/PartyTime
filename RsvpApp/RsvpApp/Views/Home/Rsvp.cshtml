@@ -1,0 +1,301 @@
+﻿@model RsvpApp.Models.GuestResponse
+
+@{
+    ViewBag.Title = "Create";
+}
+
+@{
+    Layout = null;
+}
+
+
+
+
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Will you attend?</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.WillAttend, new[]
+                {
+                    new SelectListItem() { Text = "Yes, I'll be there", Value = bool.TrueString },
+                    new SelectListItem() { Text = "No, I can't come", Value = bool.FalseString }
+                }, "Choose an option", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WillAttend, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adults, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(m => m.Adults, Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }),
+                    new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Adults, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Arrival, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.Arrival, new[]
+                    {
+                        new SelectListItem() {Text = "Friday May 6th", Value = "Friday May 6th"},
+                        new SelectListItem() {Text = "Saturday May 7th", Value = "Saturday May 7th"}
+                    }, "When are you arriving?", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Arrival, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Departure, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(x => x.Departure, new[]
+                {
+                    new SelectListItem() {Text = "Sunday May 8th", Value = "Sunday May 8th"},
+                    new SelectListItem() {Text = "Monday May 9th", Value = "Monday May 9th"},
+                }, "When are you leaving?", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Departure, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Information, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Information, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Information, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="RSVP" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Thanks")
+</div>*@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Taurus Party RSVP</title>
+
+    <!-- CSS -->
+    @Styles.Render("~/Content/rsvpCss")
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="~/Content/assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Content/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Content/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Content/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/Content/assets/ico/apple-touch-icon-57-precomposed.png">
+</head>
+
+<body>
+
+    <!-- Top menu -->
+    <nav class="navbar navbar-inverse navbar-no-bg" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Index">Bootstrap Registration Form Template</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="top-navbar-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <span class="li-text">
+                            For more information contact
+                        </span>
+                        <a href="#"><strong>Taurus Omejia</strong></a>
+                        <span class="li-text">
+                            @@ her various virtual hubs:
+                        </span>
+                        <span class="li-social">
+                            <a href="https://www.facebook.com/suruato"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/tauruso><i class="fa fa-twitter"></i></a>
+                            <a href="mailto:bevomejia@gmail.com?subject=RSVP QUESTIONS"><i class="fa fa-envelope"></i></a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Top content -->
+    <div class="top-content">
+
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-7 text">
+                        <h1><strong>Taurus</strong> 50th Birthday | RSVP FORM
+                        </h1>
+                        <div class="description">
+                            <p>
+                                if you have further questions, call Casavaleaf Man.
+                                If you like this APP Go to <a href="http://Tauruso.com" target="blank"><strong>TaurusO.com</strong></a>, and book me!
+                            </p>
+                        </div>
+                     
+                        <div class="top-big-link">
+                            <a class="btn btn-link-1" href="#">Button 1</a>
+                            <a class="btn btn-link-2" href="#">Button 2</a>
+                        </div>
+
+                        <div class="pads">ss</div>
+                    </div>
+                 
+                    <div class="col-sm-5 form-box">
+                        <div class="form-top">
+                            <div class="form-top-left">
+                                <h3><h4>GuestResponse</h4></h3>
+                                <p>Fill in the form below to get instant access:</p>
+                            </div>
+                            <div class="form-top-right">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                        </div>
+                        <div class="form-bottom">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @*<form role="form" action="" method="post" class="registration-form">*@
+                                <div class="form-group">
+                                    @Html.DropDownListFor(x => x.WillAttend, new[]
+                                    {
+                                        new SelectListItem() {Text = "Yes, I'll be there", Value = bool.TrueString},
+                                        new SelectListItem() {Text = "No, I can't come", Value = bool.FalseString}
+                                    }, "Will you attend?", new { @name = "WillAttend", @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.WillAttend, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @placeholder = "First Name", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @placeholder = "Last Name", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @placeholder = "Phone Number", @class = "form-control", } })
+                                    @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @placeholder = "Email Address", @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Adults, htmlAttributes: new { @class = "control-label adult-label" })
+                                    @Html.DropDownListFor(m => m.Adults, Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }),
+                                        new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Adults, "", new { @placeholder = "Phone Number", @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.DropDownListFor(x => x.Arrival, new[]
+                                    {
+                                        new SelectListItem() {Text = "Friday May 6th", Value = "Friday May 6th"},
+                                        new SelectListItem() {Text = "Saturday May 7th", Value = "Saturday May 7th"}
+                                    }, "When are you arriving?", new {@class = "form-control"})
+                                    @Html.ValidationMessageFor(model => model.Arrival, "", new {@class = "text-danger"})
+                                </div>
+                                <div class="form-group">
+                                        @Html.DropDownListFor(x => x.Departure, new[]
+                                        {
+                                            new SelectListItem() {Text = "Sunday May 8th", Value = "Sunday May 8th"},
+                                            new SelectListItem() {Text = "Monday May 9th", Value = "Monday May 9th"},
+                                        }, "When are you leaving?", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Departure, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.Information, htmlAttributes: new { @class = "control-label" })
+                                        @Html.TextAreaFor(model => model.Information, new { htmlAttributes = new { @class = "form-control text-box"} })
+                                        @Html.ValidationMessageFor(model => model.Information, "", new { @class = "text-danger" })
+                                </div>
+                                <button type="submit" class="btn rsvp-btn">RSVP</button>          
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Javascript -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/rsvpScript")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <!--[if lt IE 10]>
+        <script src="assets/js/placeholder.js"></script>
+    <![endif]-->
+
+</body>
+
+</html>
