@@ -6,13 +6,14 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using RsvpApp.Entities;
 using RsvpApp.Models;
 
 namespace RsvpApp.Controllers
 {
     public class HomeController : Controller
     {
-        private RsvpAppContext db = new RsvpAppContext();
+        private RsvpDbContext db = new RsvpDbContext();
 
         // GEt: Index
         public ActionResult Index()
@@ -27,6 +28,7 @@ namespace RsvpApp.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ViewResult Rsvp(GuestResponse guestResponse)
         {
             var firstName = guestResponse.FirstName;
