@@ -41,6 +41,8 @@ namespace RsvpApp.Controllers
 
             if (ModelState.IsValid)
             {
+                db.GuestResponses.Add(guestResponse);
+                db.SaveChanges();
                 // TODO: Email response to the party organizer
                 return View("Thanks", guestResponse);
             }
