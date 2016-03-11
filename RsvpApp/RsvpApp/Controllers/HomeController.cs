@@ -22,6 +22,8 @@ namespace RsvpApp.Controllers
         }
 
         // GET: Super: to manage guests
+        [HttpGet]
+        [Authorize]
         public ActionResult Super()
         {
             return View(db.GuestResponses.ToList());
