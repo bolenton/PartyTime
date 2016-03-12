@@ -8,117 +8,6 @@
     Layout = null;
 }
 
-
-
-
-@*@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="form-horizontal">
-
-        <hr />
-
-
-        <div class="form-group">
-            <label class="control-label col-md-2">Will you attend?</label>
-            <div class="col-md-10">
-                @Html.DropDownListFor(x => x.WillAttend, new[]
-                {
-                    new SelectListItem() { Text = "Yes, I'll be there", Value = bool.TrueString },
-                    new SelectListItem() { Text = "No, I can't come", Value = bool.FalseString }
-                }, "Choose an option", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.WillAttend, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.PhoneNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.EmailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.EmailAddress, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.EmailAddress, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Adults, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(m => m.Adults, Enumerable.Range(1, 10).Select(i => new SelectListItem { Text = i.ToString(), Value = i.ToString() }),
-                    new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Adults, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Arrival, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(x => x.Arrival, new[]
-                    {
-                        new SelectListItem() {Text = "Friday May 6th", Value = "Friday May 6th"},
-                        new SelectListItem() {Text = "Saturday May 7th", Value = "Saturday May 7th"}
-                    }, "When are you arriving?", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Arrival, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Departure, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownListFor(x => x.Departure, new[]
-                {
-                    new SelectListItem() {Text = "Sunday May 8th", Value = "Sunday May 8th"},
-                    new SelectListItem() {Text = "Monday May 9th", Value = "Monday May 9th"},
-                }, "When are you leaving?", new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Departure, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Information, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Information, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Information, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="RSVP" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Thanks")
-</div>*@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -162,7 +51,7 @@
                     <div class="form-box">
                         <div class="form-top">
                             <div class="form-top-left">
-                                <h3><h4>Beverly 50th RSVP</h4></h3>
+                                <h3>Beverly 50th RSVP</h3>
                                 <p>Fill in the form for vip access on MAY 7:</p>
                             </div>
                             <div class="form-top-right">
