@@ -3,35 +3,265 @@
     ViewBag.Title = "Taurus O.";
 }
 
-<div class="nomobile">
-    <div id="layer"></div>
-    <!-- START HEADER -->
-    <section id="header">
-        <div class="container" style="padding-top: 0;">
-            <header>
-                <!-- HEADLINE -->
-                <h1 data-animated="GoIn"><b>Taurus Omejia 50th Birthday</b> Celebration happening in...
-                </h1>
-            </header>
-            <!-- START TIMER -->
-            <div id="timer" data-animated="FadeIn" class="dark-layer">
-                <div id="days" class="timer_box"></div>
-                <div id="hours" class="timer_box"></div>
-                <div id="minutes" class="timer_box"></div>
-                <div id="seconds" class="timer_box"></div>
-                <h4>This will be the party of the year. You can't afford to miss</h4>
-                <div class="rsvp">
-                    <h4>Click the button to RSVP</h4>
-                    <button class="btn btn-info">@Html.ActionLink("RSVP NOW!", "Rsvp")</button>
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html class="js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Beverly Omejia</title>
+
+    <!-- Stylesheets -->
+
+    <link rel="stylesheet" href="~/Content/media/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/media/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/Content/media/css/animate.css">
+    <link rel="stylesheet" href="~/Content/media/css/style.css">
+
+    <!-- Google Fonts -->
+
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic|Cinzel:400,700,900' rel='stylesheet' type='text/css'>
+
+    <!-- Modernizr to provide HTML5 support for IE. -->
+    <script src="~/Content/media/js/modernizr.custom.js"></script>
+</head>
+<body>
+    <!-- Main Content -->
+
+    <div id="wrap">
+
+        <!-- Video Wrap -->
+
+        <section id="video-wrap">
+            <div id="video"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="logo text-center wow fadeInDown">
+                            <a href="#"><img src="~/Content/media/stuff/bev2.png" alt="Layla"></a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 wow fadeInLeft" style="z-index: 9999;">
+                        <div class="headline-wrap">
+                            <h1 class="headline">
+                                50th birthday Celebration will be ....
+                                <br>
+                                <span class="quotes">Fun Fill</span>
+                                <span class="quotes">Beautiful</span>
+                                <span class="quotes">Superb</span>
+                                <span class="quotes">Delicious</span>
+                                <span class="quotes">Awesome</span>
+                                <span class="quotes">Glamorous</span>
+                                <span class="quotes">May 7th</span>
+                                <br>
+                                May 6th - May 9th!
+                            </h1>
+
+                            <div class="row move-down">
+                                <div class="col-xs-12">
+                                    <div class="title text-center wow zoomIn">
+                                        <h1>@Html.ActionLink("CLICK HERE AND RSVP NOW!!!", "Rsvp", null, new { @class = "rsvp-button" })</h1>
+                                        <span class="title line"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5  wow fadeInRight">
+                        <div class="clock row">
+                            <div class="col-xs-3 col-sm-3 col-md-6">
+                                <div class="countdown-time-value clock-item clock-days">
+                                    <div class="wrap">
+                                        <div class="inner">
+                                            <div id="canvas-days" class="clock-canvas"></div>
+
+                                            <div class="text">
+                                                <p class="val">0</p>
+                                                <p class="type-days type-time">DAYS</p>
+                                            </div><!-- /.text -->
+                                        </div><!-- /.inner -->
+                                    </div><!-- /.wrap -->
+                                </div>
+                            </div><!-- /.clock-item -->
+
+                            <div class="col-xs-3 col-sm-3 col-md-6">
+                                <div class="clock-item clock-hours countdown-time-value">
+                                    <div class="wrap">
+                                        <div class="inner">
+                                            <div id="canvas-hours" class="clock-canvas"></div>
+
+                                            <div class="text">
+                                                <p class="val">0</p>
+                                                <p class="type-hours type-time">HOURS</p>
+                                            </div><!-- /.text -->
+                                        </div><!-- /.inner -->
+                                    </div><!-- /.wrap -->
+                                </div>
+                            </div><!-- /.clock-item -->
+
+                            <div class="col-xs-3 col-sm-3 col-md-6">
+                                <div class="clock-item clock-minutes countdown-time-value">
+                                    <div class="wrap">
+                                        <div class="inner">
+                                            <div id="canvas-minutes" class="clock-canvas"></div>
+
+                                            <div class="text">
+                                                <p class="val">0</p>
+                                                <p class="type-minutes type-time">MINUTES</p>
+                                            </div><!-- /.text -->
+                                        </div><!-- /.inner -->
+                                    </div><!-- /.wrap -->
+                                </div>
+                            </div><!-- /.clock-item -->
+
+                            <div class="col-xs-3 col-sm-3 col-md-6">
+                                <div class="clock-item clock-seconds countdown-time-value">
+                                    <div class="wrap">
+                                        <div class="inner">
+                                            <div id="canvas-seconds" class="clock-canvas"></div>
+
+                                            <div class="text">
+                                                <p class="val">0</p>
+                                                <p class="type-seconds type-time">SECONDS</p>
+                                            </div><!-- /.text -->
+                                        </div><!-- /.inner -->
+                                    </div><!-- /.wrap -->
+                                </div>
+                            </div><!-- /.clock-item -->
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- END TIMER -->
-            <div class="row">
-                <div class="col-sm-4 pads">dsdf</div>
-                <div class="col-sm-4 pads">dsdf</div>
-                <div class="col-sm-4 pads">dsdf</div>
+
+            <div class="arrow-down text-center">
+                <a href="#nav-menu" class="wow bounce" data-wow-duration="4s" data-wow-delay="1s" data-wow-iteration="1000"><i class="ion-chevron-down"></i></a>
             </div>
-        </div>
-        <!-- LAYER OVER THE SLIDER TO MAKE THE WHITE TEXT READABLE -->
-    </section>
-</div>
+        </section>
+
+        <!-- Navigation -->
+
+        <nav id="nav-menu" class="navbar nav-layla" role="navigation">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav">
+                    <i class="ion-navicon"></i>
+                </button>
+                <a class="navbar-brand" href="#">BEVERLY OMEJIA</a>
+            </div>
+
+            <div class="collapse navbar-collapse main-nav">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#wrap">RSVP</a><span class="hover-li"></span></li>
+                    <li><a href="#about">About</a><span class="hover-li"></span></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- About Section -->
+
+        <section id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="title text-center wow zoomIn">
+                            <h1>ABOUT</h1>
+                            <span class="title line"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 text-center wow fadeInLeft">
+                        <img src="~/Content/media/stuff/pic1.jpg" alt="Jane Doe" class="img-responsive portrait">
+                    </div>
+                    <div class="col-sm-6 wow fadeInRight">
+                        <div class="about-text">
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque quos sunt, possimus inventore quo expedita earum animi optio, dignissimos placeat quaerat voluptatum deserunt voluptatibus molestias iure adipisci totam quidem. </p>
+
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque quos sunt, possimus inventore quo expedita earum animi optio, dignissimos placeat quaerat voluptatum deserunt voluptatibus molestias iure adipisci totam quidem. </p>
+
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus itaque quos sunt, possimus inventore quo expedita earum animi optio, dignissimos placeat quaerat voluptatum deserunt voluptatibus molestias iure adipisci totam quidem. </p>
+                            <div class="signature text-right">
+                                <img src="~/Content/media/stuff/signature.png" class="img-responsive" alt="Jane Doe">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <p class="copyright text-left">Copyright © 2016 Taurus Omejia. All rights reserved.</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <p class="copyright text-right">Site by <a href="http://www.tauruso.com" target="blank">TaurusO.</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+
+
+    <!-- All the scripts -->
+    @Scripts.Render("~/bundles/main-page")
+    @*<script src="Content/media/js/jquery.min.js"></script>
+    <script src="Content/media/js/bootstrap.min.js"></script>
+    <script src="Content/media/js/jquery.videoBG.js"></script>
+    <script src="Content/media/js/jquery.sticky-kit.min.js"></script>
+    <script src="Content/media/js/wow.min.js"></script>
+    <script src="Content/media/js/kinetic.js"></script>
+    <script src="Content/media/js/jquery.final-countdown.min.js"></script>
+    <script src="../Content/media/js/script.js"></script>*@
+
+    <!-- All the scripts Ends-->
+
+</body>
+</html>
+
+
+
+
+
+@*<div class="nomobile">
+        <div id="layer"></div>
+        <!-- START HEADER -->
+        <section id="header">
+            <div class="container" style="padding-top: 0;">
+                <header>
+                    <!-- HEADLINE -->
+                    <h1 data-animated="GoIn"><b>Taurus Omejia 50th Birthday</b> Celebration happening in...
+                    </h1>
+                </header>
+                <!-- START TIMER -->
+                <div id="timer" data-animated="FadeIn" class="dark-layer">
+                    <div id="days" class="timer_box"></div>
+                    <div id="hours" class="timer_box"></div>
+                    <div id="minutes" class="timer_box"></div>
+                    <div id="seconds" class="timer_box"></div>
+                    <h4>This will be the party of the year. You can't afford to miss</h4>
+                    <div class="rsvp">
+                        <h4>Click the button to RSVP</h4>
+                        @Html.ActionLink("RSVP NOW!", "Rsvp", null, new { @class = "btn btn-success" })
+
+                    </div>
+                </div>
+                <!-- END TIMER -->
+                <div class="row">
+                    <div class="col-sm-4 pads">dsdf</div>
+                    <div class="col-sm-4 pads">dsdf</div>
+                    <div class="col-sm-4 pads">dsdf</div>
+                </div>
+            </div>
+            <!-- LAYER OVER THE SLIDER TO MAKE THE WHITE TEXT READABLE -->
+        </section>
+    </div>*@

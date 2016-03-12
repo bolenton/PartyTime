@@ -20,6 +20,8 @@
 }
 
 
+
+
 strong { font-weight: 500; }
 
 a, a:hover, a:focus {
@@ -120,9 +122,11 @@ ul.navbar-nav {
 .navbar-inverse ul.navbar-nav li .li-social a:focus { border: 0; color: #19b9e7; }
 
 .navbar-brand {
-	width: 123px;
-	background: url(/Content/backgrounds/logo.png) left center no-repeat;
 	text-indent: -99999px;
+}
+
+.nav {
+    height: 5px;
 }
 
 
@@ -133,7 +137,7 @@ ul.navbar-nav {
 }
 
 .top-content .text {
-	padding-top: 120px;
+	padding-top: 10px;
 	color: #fff;
 }
 
@@ -207,7 +211,9 @@ button.btn.rsvp-btn {
 }
 
 
-/***** Media queries *****/
+
+
+/***** media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}
 
@@ -234,6 +240,9 @@ button.btn.rsvp-btn {
 
 }
 
+div.container {
+    width: 40% !important
+}
 
 /* Retina-ize images/icons */
 

@@ -1,8 +1,8 @@
-/*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
-/*! NOTE: If you're already including a window.matchMedia polyfill via Modernizr or otherwise, you don't need this part */
+/*! matchmedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas. Dual MIT/BSD license */
+/*! NOTE: If you're already including a window.matchmedia polyfill via Modernizr or otherwise, you don't need this part */
 (function(w) {
   "use strict";
-  w.matchMedia = w.matchMedia || function(doc, undefined) {
+  w.matchmedia = w.matchmedia || function(doc, undefined) {
     var bool, docElem = doc.documentElement, refNode = docElem.firstElementChild || docElem.firstChild, fakeBody = doc.createElement("body"), div = doc.createElement("div");
     div.id = "mq-test-1";
     div.style.cssText = "position:absolute;top:-100em";
@@ -65,7 +65,7 @@
     minw: /\([\s]*min\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/,
     maxw: /\([\s]*max\-width\s*:[\s]*([\s]*[0-9\.]+)(px|em)[\s]*\)/
   };
-  respond.mediaQueriesSupported = w.matchMedia && w.matchMedia("only all") !== null && w.matchMedia("only all").matches;
+  respond.mediaQueriesSupported = w.matchmedia && w.matchmedia("only all") !== null && w.matchmedia("only all").matches;
   if (respond.mediaQueriesSupported) {
     return;
   }
@@ -94,11 +94,11 @@
     }
     ret = eminpx = parseFloat(ret);
     return ret;
-  }, applyMedia = function(fromResize) {
+  }, applymedia = function(fromResize) {
     var name = "clientWidth", docElemProp = docElem[name], currWidth = doc.compatMode === "CSS1Compat" && docElemProp || doc.body[name] || docElemProp, styleBlocks = {}, lastLink = links[links.length - 1], now = new Date().getTime();
     if (fromResize && lastCall && now - lastCall < resizeThrottle) {
       w.clearTimeout(resizeDefer);
-      resizeDefer = w.setTimeout(applyMedia, resizeThrottle);
+      resizeDefer = w.setTimeout(applymedia, resizeThrottle);
       return;
     } else {
       lastCall = now;
@@ -147,16 +147,16 @@
     href = href.substring(0, href.lastIndexOf("/"));
     var repUrls = function(css) {
       return css.replace(respond.regex.urls, "$1" + href + "$2$3");
-    }, useMedia = !ql && media;
+    }, usemedia = !ql && media;
     if (href.length) {
       href += "/";
     }
-    if (useMedia) {
+    if (usemedia) {
       ql = 1;
     }
     for (var i = 0; i < ql; i++) {
       var fullq, thisq, eachq, eql;
-      if (useMedia) {
+      if (usemedia) {
         fullq = media;
         rules.push(repUrls(styles));
       } else {
@@ -176,7 +176,7 @@
         });
       }
     }
-    applyMedia();
+    applymedia();
   }, makeRequests = function() {
     if (requestQueue.length) {
       var thisRequest = requestQueue.shift();
@@ -213,12 +213,12 @@
   ripCSS();
   respond.update = ripCSS;
   respond.getEmValue = getEmValue;
-  function callMedia() {
-    applyMedia(true);
+  function callmedia() {
+    applymedia(true);
   }
   if (w.addEventListener) {
-    w.addEventListener("resize", callMedia, false);
+    w.addEventListener("resize", callmedia, false);
   } else if (w.attachEvent) {
-    w.attachEvent("onresize", callMedia);
+    w.attachEvent("onresize", callmedia);
   }
 })(this);

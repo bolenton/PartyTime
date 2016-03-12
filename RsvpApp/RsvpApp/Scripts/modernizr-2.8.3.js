@@ -149,14 +149,14 @@ window.Modernizr = (function( window, document, undefined ) {
     /*>>teststyles*/
 
     /*>>mq*/
-    // adapted from matchMedia polyfill
+    // adapted from matchmedia polyfill
     // by Scott Jehl and Paul Irish
     // gist.github.com/786768
-    testMediaQuery = function( mq ) {
+    testmediaQuery = function( mq ) {
 
-      var matchMedia = window.matchMedia || window.msMatchMedia;
-      if ( matchMedia ) {
-        return matchMedia(mq) && matchMedia(mq).matches || false;
+      var matchmedia = window.matchmedia || window.msMatchmedia;
+      if ( matchmedia ) {
+        return matchmedia(mq) && matchmedia(mq).matches || false;
       }
 
       var bool;
@@ -756,7 +756,7 @@ window.Modernizr = (function( window, document, undefined ) {
                 bool.mp3  = elem.canPlayType('audio/mpeg;')               .replace(/^no$/,'');
 
                 // Mimetypes accepted:
-                //   developer.mozilla.org/En/Media_formats_supported_by_the_audio_and_video_elements
+                //   developer.mozilla.org/En/media_formats_supported_by_the_audio_and_video_elements
                 //   bit.ly/iphoneoscodecs
                 bool.wav  = elem.canPlayType('audio/wav; codecs="1"')     .replace(/^no$/,'');
                 bool.m4a  = ( elem.canPlayType('audio/x-m4a;')            ||
@@ -1328,7 +1328,7 @@ window.Modernizr = (function( window, document, undefined ) {
     //       Modernizr.mq('(min-width:0)')
     // usage:
     // Modernizr.mq('only screen and (max-width:768)')
-    Modernizr.mq            = testMediaQuery;
+    Modernizr.mq            = testmediaQuery;
     /*>>mq*/
 
     /*>>hasevent*/

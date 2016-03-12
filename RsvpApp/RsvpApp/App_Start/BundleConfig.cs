@@ -28,6 +28,9 @@ namespace RsvpApp
                       "~/Scripts/soon/custom.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
+                      "~/Content/bootstrap.css"));
+
+            bundles.Add(new StyleBundle("~/Content/css2").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/soon.css",
                       "~/Content/main.css"));
@@ -42,6 +45,18 @@ namespace RsvpApp
                       "~/Scripts/rsvpScript/jquery.backstretch.js",
                      "~/Scripts/rsvpScript/retina-1.1.0.js",
                      "~/Scripts/rsvpScript/scripts.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/main-page").Include(
+                      "~/Content/media/js/jquery.min.js",
+                      "~/Content/media/js/bootstrap.min.js",
+                      "~/Content/media/js/jquery.videoBG.js",
+                      "~/Content/media/js/jquery.sticky-kit.min.js",
+                      "~/Content/media/js/wow.min.js",
+                      "~/Content/media/js/kinetic.js",
+                      "~/Content/media/js/jquery.final-countdown.min.js",
+                      "~/Content/media/js/script.js"
+
+                ));
 
         }
     }

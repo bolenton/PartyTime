@@ -52,7 +52,7 @@
     if (root.devicePixelRatio > 1)
       return true;
 
-    if (root.matchMedia && root.matchMedia(mediaQuery).matches)
+    if (root.matchmedia && root.matchmedia(mediaQuery).matches)
       return true;
 
     return false;
