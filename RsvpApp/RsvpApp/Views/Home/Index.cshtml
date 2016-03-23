@@ -1,10 +1,14 @@
-﻿
+﻿@model IEnumerable<RsvpApp.Models.GuestResponse>
 @{
     ViewBag.Title = "Taurus O.";
-}
-
-@{
     Layout = null;
+    int count = 0;
+    foreach (var a in Model)
+    {
+        count += a.Adults;
+
+    }
+    var total = @count + 1;
 }
 
 
@@ -68,11 +72,27 @@
                             <div class="row move-down">
                                 <div class="col-xs-12">
                                     <div class="title text-center wow zoomIn">
-                                        <h1>@Html.ActionLink("CLICK HERE AND RSVP NOW!!!", "Rsvp", null, new { @class = "rsvp-button" })</h1>
+                                        <h1>@Html.ActionLink("Be # " + @total + " CLICK HERE & RSVP NOW!", "Rsvp", null, new { @class = "rsvp-button" })</h1>
                                         <span class="title line"></span>
                                     </div>
                                 </div>
                             </div>
+
+                            <
+                            <div class="col-xs-5 col-sm-5 col-md-5">
+                                <div class="clock-item clock-seconds countdown-time-value">
+                                    <div class="wrap">
+                                        <div class="inner">
+                                            <div id="canvas-seconds" class="clock-canvas"></div>
+                                            <div class="text">
+                                                <p>@count</p>
+                                                <p class="type-seconds type-time"><strong>Guest Signed up so far!</strong></p>
+                                            </div><!-- /.text -->
+                                        </div><!-- /.inner -->
+                                    </div><!-- /.wrap -->
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="col-md-5  wow fadeInRight">
@@ -161,7 +181,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#wrap">RSVP</a><span class="hover-li"></span></li>
                     <li><a href="#about">About</a><span class="hover-li"></span></li>
-                    <li><a href="#contact">Show Your Love</a><span class="hover-li"></span></li>
+                    <li><a href="/Home/Super">Back-Office</a><span class="hover-li"></span></li>
+                    @*<li><a href="#contact">Show Your Love</a><span class="hover-li"></span></li>*@
                 </ul>
             </div>
         </nav>
@@ -187,9 +208,9 @@
 
 
                             <p>
-                                I am excited and can’t wait to see of my family and friends
-                                at this all important occasion. I am also, very pleased with the responses
-                                I am getting and working hard to make to make your weekend fun and memorable.
+                                I am excited! I can’t wait to see all my family and friends
+                                at this all important occasion. I am very pleased with the responses that
+                                I am getting. We are working hard to make your weekend fun and memorable.
                             </p>
 
                             <p>
@@ -200,13 +221,13 @@
                             </p>
 
                             <p>
-                                It is not by power or might that I have come this far looking so
+                                But finally and most importantly, It is not by power or might that I have come this far looking so
                                 fabulous at 50 but, by the spirit and grace of God the almighty father
                                 of all ages. I am therefore, thankful and appreciative as I continue
                                 to serve in his vineyard.
                             </p>
                             <div class="signature text-right">
-                                <img src="~/Content/media/stuff/signature.png" class="img-responsive" alt="Jane Doe">
+                                <img src="~/Content/media/stuff/bev1.png" class="img-responsive" alt="Jane Doe">
                             </div>
                         </div>
                     </div>
@@ -214,7 +235,7 @@
             </div>
         </section>
 
-       
+
 
         <section id="footer">
             <div class="container">
@@ -235,14 +256,16 @@
 
     <!-- All the scripts -->
     @Scripts.Render("~/bundles/main-page")
-    @*<script src="Content/media/js/jquery.min.js"></script>
-    <script src="Content/media/js/bootstrap.min.js"></script>
-    <script src="Content/media/js/jquery.videoBG.js"></script>
-    <script src="Content/media/js/jquery.sticky-kit.min.js"></script>
-    <script src="Content/media/js/wow.min.js"></script>
-    <script src="Content/media/js/kinetic.js"></script>
-    <script src="Content/media/js/jquery.final-countdown.min.js"></script>
-    <script src="../Content/media/js/script.js"></script>*@
+    <script>
+        var c = document.getElementById("people"),
+            ctx = c.getContext("2d"),
+            start = -Math.PI/2;
+        ctx.beginPath();
+        ctx.arc(100, 75, 35, start, start + ((@count* 50)/50 * Math.PI));
+        ctx.strokeStyle = '#F0F';
+        ctx.lineWidth = 5;
+        ctx.stroke();
+    </script>
 
     <!-- All the scripts Ends-->
 

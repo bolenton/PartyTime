@@ -21,7 +21,7 @@ namespace RsvpApp.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("name=RsvpEntities", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,6 @@ namespace RsvpApp.Models
         {
             return new ApplicationDbContext();
         }
+
     }
 }

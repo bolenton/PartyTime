@@ -40,5 +40,8 @@ namespace RsvpApp.Models
 
         [Display(Name = "Any Other Info?")]
         public string Information { get; set; }
+
+        [Display(Name = "Paid?")]
+        public bool Paid { get; set; }
     }
 }

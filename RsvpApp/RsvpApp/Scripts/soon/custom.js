@@ -96,3 +96,11 @@ BOOTSTRAP
 /******************************************************************************************************************************
 PROGRESS BAR
 *******************************************************************************************************************************/
+//For Counter, hopefully
+var c = document.getElementById("people"),
+ctx = c.getContext("2d"),
+start = -Math.PI / 2;
+ctx.beginPath();
+ctx.fill("#F0F")
+ctx.arc(100, 75, 50, start, start + ((2 * 50) / 50 * Math.PI));
+ctx.stroke();

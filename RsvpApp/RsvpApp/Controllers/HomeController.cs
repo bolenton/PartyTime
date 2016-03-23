@@ -18,14 +18,15 @@ namespace RsvpApp.Controllers
         // GEt: Index
         public ActionResult Index()
         {
-            return View();
+            return View(db.GuestResponses.ToList());
         }
 
         // GET: Super: to manage guests
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public ActionResult Super()
-        {
+        {   
+            
             return View(db.GuestResponses.ToList());
         }
 
@@ -42,6 +43,7 @@ namespace RsvpApp.Controllers
             var email = guestResponse.EmailAddress;
             var attending = guestResponse.WillAttend;
             var info = guestResponse.Information;
+            var paid = guestResponse.Paid;
 
             if (ModelState.IsValid)
             {
@@ -120,7 +122,7 @@ namespace RsvpApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,EmailAddress,WillAttend,Adults,Arrival,Departure,Information")] GuestResponse guestResponse)
+        public ActionResult Edit([Bind(Include = "Id,FirstName,LastName,PhoneNumber,EmailAddress,WillAttend,Adults,Arrival,Departure,Information,Paid")] GuestResponse guestResponse)
         {
             if (ModelState.IsValid)
             {
